@@ -19,7 +19,7 @@ For example: There are about 50 members in the group that they voted for what th
     -titles - string
     -bluray(optional) - bit field
 
-    Lanuages
+    Lanuagues
     
     -id(primary key) - integer
     -sub - bit field
@@ -29,7 +29,7 @@ For example: There are about 50 members in the group that they voted for what th
 
     -member id - integers
     -dvd id - integers
-    -lanuages
+    -lanuagues
  
 ##"Should" cases
  
@@ -40,11 +40,17 @@ For example: There are about 50 members in the group that they voted for what th
     -Delete memebers
     -Create titles
     -Delete titles
+    -Create Lanuague by asking admin if they are sure
+    -Delete Lanuague by asking admin if they are sure
+    -Edit a Lanuague by asking admin if they are sure
     -Fetch all members owns one title
     -Edited members username(optional)
     -Fetch all titles that has bluray versions(optional)
     -Fetch member's own titles
     -Fetch all titles that doesn't have a member owning it.
+    -Fetch all titles that are sub(optional)
+    -Fetch all titles that are dub(optional)
+    -Fetch all titles that are both(optional)
     
 ##"Should not" cases
     
@@ -54,7 +60,9 @@ For example: There are about 50 members in the group that they voted for what th
     -Create a dvd without a title
     -Create a member with a username, but no name (optional)
     -Create a Owners without an title id and name id
-    -Any editing after it's first creation on the Lanuage table
+    -Create a Lanuague 
+    -Delete a Lanuague
+    -Edit a Lanuague 
     
 ## Stretches
 
