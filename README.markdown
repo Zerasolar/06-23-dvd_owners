@@ -7,22 +7,22 @@ For example: There are about 50 members in the group that they voted for what th
 
 #Model Diagrams
 
-Members
+    Members
 
- -id(primary key) - integer
- -name - string
- -username(optional) -string
+   -id(primary key) - integer
+   -name - string
+   -username(optional) -string
  
-Dvds
+     Dvds
 
- -id(primary key) - integer
- -titles - string
- -bluray(optional) - bit field
+   -id(primary key) - integer
+   -titles - string
+   -bluray(optional) - bit field
  
-Owners
+     Owners
 
-  -member id - integers
-  -dvd id - integers
+    -member id - integers
+    -dvd id - integers
  
  
 ##"Should" cases
@@ -54,8 +54,8 @@ Owners
 If I have time those optional tags items will be added in the program will help with adding on to this program. Where I hope to take this where you can take the listing of the dvds to let users vote which one they want to watch that week.
 
 ## Requirements
-  -at least three models
-  -at least one one to many relationship
-  -at least one many to many relationship
-  -unit test for all business logic
-  -ability to fully interact with the application from the browser
+    -at least three models
+    -at least one one to many relationship
+    -at least one many to many relationship
+    -unit test for all business logic
+    -ability to fully interact with the application from the browser
