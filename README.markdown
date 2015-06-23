@@ -8,54 +8,61 @@ For example: There are about 50 members in the group that they voted for what th
 #Model Diagrams
 
     Members
+    
+    -id(primary key) - integer
+    -name - string
+    -username(optional) -string
+   
+    Dvds
+    
+    -id(primary key) - integer
+    -titles - string
+    -bluray(optional) - bit field
 
-   -id(primary key) - integer
-   -name - string
-   -username(optional) -string
+    Lanuages
+    
+    -id(primary key) - integer
+    -sub - bit field
+    -dub - bit field
  
-     Dvds
-
-   -id(primary key) - integer
-   -titles - string
-   -bluray(optional) - bit field
- 
-     Owners
+    Owners
 
     -member id - integers
     -dvd id - integers
- 
+    -lanuages
  
 ##"Should" cases
  
  Here's what I want to be able to do:
- 
-   -create members
-   -edited members
-   -delete memebers
-   -create titles
-   -delete titles
-   -fetch all members owns one title
-   -edited members username(optional)
-   -fetch all titles that has bluray versions(optional)
-   -fetch member's own titles
-   -fetch all titles that doesn't have a member owning it.
 
+    -Create members
+    -Edited members
+    -Delete memebers
+    -Create titles
+    -Delete titles
+    -Fetch all members owns one title
+    -Edited members username(optional)
+    -Fetch all titles that has bluray versions(optional)
+    -Fetch member's own titles
+    -Fetch all titles that doesn't have a member owning it.
+    
 ##"Should not" cases
-
+    
   I should not be able to:
-  
-    -create a memeber without a name
-    -create a dvd without a title
-    -create a member with a username, but no name (optional)
-    -create a Owners without an title id and name id
+    
+    -Create a memeber without a name
+    -Create a dvd without a title
+    -Create a member with a username, but no name (optional)
+    -Create a Owners without an title id and name id
+    -Any editing after it's first creation on the Lanuage table
     
 ## Stretches
 
 If I have time those optional tags items will be added in the program will help with adding on to this program. Where I hope to take this where you can take the listing of the dvds to let users vote which one they want to watch that week.
 
 ## Requirements
-    -at least three models
-    -at least one one to many relationship
-    -at least one many to many relationship
-    -unit test for all business logic
-    -ability to fully interact with the application from the browser
+    -At least three models
+    -At least one one to many relationship
+    -At least one many to many relationship
+    -Unit test for all business logic
+    -Ability to fully interact with the application from the browser
