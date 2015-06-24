@@ -2,7 +2,7 @@
 
 <ul>
   <% Member.all.each do |list| %>
-  <li><a href="/change_member_form/<%= list.id %>">Name: <%= list.name%> Username <%= list.username%></a></li>
+  <li><a href="/change_member_form/<%= list.id %>">Name: <%=list.name%> Username <%=list.username%></a></li>
   <% end %>
 </ul>
 <a href="/home">Back</a>
