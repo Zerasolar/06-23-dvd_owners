@@ -26,7 +26,6 @@ def save
     end
  
     for_sql = individual_instance_variables.join(', ')
-    binding.pry
     DATABASE.execute("UPDATE #{table_name} SET #{for_sql} WHERE id = #{id}")
  
     return self

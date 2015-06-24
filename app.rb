@@ -23,15 +23,15 @@ get "/home" do
 end
 
 get "/add_member" do
-  erb :"members/add_member_form"
+  erb :"/add_member_form"
 end
 
-get "/list_member" do
-  erb :"members/list_member"
+get "/list_members" do
+  erb :"/list_members"
 end
 
 get "/save_member" do
-  @new_member = Member.add({"name" => params["name"], "username" => "username"})
+  @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
   
-  erb :"members/member_added"
+  erb :"/member_added"
 end
