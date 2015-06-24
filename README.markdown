@@ -13,56 +13,61 @@ For example: There are about 50 members in the group that they voted for what th
     -name - string
     -username(optional) -string
    
-    Dvds
+    Anime_Serial
     
     -id(primary key) - integer
     -titles - string
-    -bluray(optional) - bit field
+  
 
-    Lanuagues
+    Format_Type
     
     -id(primary key) - integer
-    -sub - bit field
-    -dub - bit field
+    -name - string
  
-    Owners
+    Media
 
-    -member id - integers
-    -dvd id - integers
-    -lanuagues
+    -id(primary key) - integer
+    -format_id - integer
+    -anime_id - integer
+    -name - string
+    
+    Media members
+    -member_id - integer
+    -media_id - integer
  
 ##"Should" cases
  
  Here's what I want to be able to do:
 
-    -Create members
-    -Edited members
-    -Delete memebers
-    -Create titles
-    -Delete titles
-    -Create Lanuague by asking admin if they are sure
-    -Delete Lanuague by asking admin if they are sure
-    -Edit a Lanuague by asking admin if they are sure
-    -Fetch all members owns one title
+    -Create members name
+    -Edited members name
+    -Delete members name
+    -Create anime series title
+    -Delete anime series title
+    -Create format type
+    -Delete format type
+    -Edit a format type
+    -Create media table format_id, anime_id, name
+    -Delete media table format_id, anime_id, name
+    -Edit media table format_id, anime_id, name
+    -Create members username(optional)
     -Edited members username(optional)
-    -Fetch all titles that has bluray versions(optional)
-    -Fetch member's own titles
-    -Fetch all titles that doesn't have a member owning it.
-    -Fetch all titles that are sub(optional)
-    -Fetch all titles that are dub(optional)
-    -Fetch all titles that are both(optional)
+    -Delete members username(optional)
+    -Create media members member_id and media_id
+    -Fetch all members owns the media
+    -Fetch format types for media(optional)
     
 ##"Should not" cases
     
   I should not be able to:
     
     -Create a memeber without a name
-    -Create a dvd without a title
+    -Create a anime without a title
     -Create a member with a username, but no name (optional)
-    -Create a Owners without an title id and name id
-    -Create a Lanuague 
-    -Delete a Lanuague
-    -Edit a Lanuague 
+    -Create a media without an format id and anime id(optional)
+    -Create a format with out a name
+    -Create two of the same username(optional)
+    -Create two of the same title(optional)
     
 ## Stretches
 
