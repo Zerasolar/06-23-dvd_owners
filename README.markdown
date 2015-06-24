@@ -32,6 +32,7 @@ For example: There are about 50 members in the group that they voted for what th
     -name - string
     
     Media members
+    
     -member_id - integer
     -media_id - integer
  
@@ -44,6 +45,7 @@ For example: There are about 50 members in the group that they voted for what th
     -Delete members name
     -Create anime series title
     -Delete anime series title
+    -Edit anime series title
     -Create format type
     -Delete format type
     -Edit a format type
@@ -65,7 +67,7 @@ For example: There are about 50 members in the group that they voted for what th
     -Create a anime without a title
     -Create a member with a username, but no name (optional)
     -Create a media without an format id and anime id(optional)
-    -Create a format with out a name
+    -Create a format without a name
     -Create two of the same username(optional)
     -Create two of the same title(optional)
     
