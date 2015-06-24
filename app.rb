@@ -52,8 +52,20 @@ get "/edited_member" do
     @member_instance.name = params["name"]
   end
   if !params["username"].empty?
-    @member_instance.name = params["username"]
+    @member_instance.username = params["username"]
   end
   @member_instance.save
-  erb :"member_changed"
+  erb :"members/member_changed"
 end
+
+get "/delete_member" do
+  erb :"members/delete_member"
+end
+
+get "/gone_member" do
+  params["member"].each do |member|
+    Member.delete_row(member)
+  end
+  erb :"members/member_deleted"
+end
+    
