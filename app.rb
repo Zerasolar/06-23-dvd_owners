@@ -46,9 +46,13 @@ get "/change_member_form/:x" do
 end
 
 get "/edited_member" do
+  binding.pry
   @member_instance = Member.find(params["id"])
   if !params["name"].empty?
     @member_instance.name = params["name"]
+  end
+  if !params["username"].empty?
+    @member_instance.name = params["username"]
   end
   @member_instance.save
   erb :"member_changed"
