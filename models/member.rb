@@ -29,4 +29,8 @@ class Member
       return false
     end
   end
+  
+  
+  
+  
 end
