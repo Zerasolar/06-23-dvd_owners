@@ -1,0 +1,8 @@
+<h1> Click on the member you want to change </h1>
+
+<ul>
+  <% Member.all.each do |list| %>
+  <li><a href="/change_member_form/<%= list.id %>">Name: <%= list.name%> Username <%= list.username%></a></li>
+  <% end %>
+</ul>
+<a href="/home">Back</a>

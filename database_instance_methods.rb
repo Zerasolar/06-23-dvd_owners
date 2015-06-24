@@ -4,6 +4,7 @@ require_relative "database_class_methods.rb"
 
 module DatabaseInstanceMethods
   extend DatabaseClassMethods
+  
 def save
     table_name = self.class.to_s.pluralize.underscore
  

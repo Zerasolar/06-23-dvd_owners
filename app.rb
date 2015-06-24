@@ -23,15 +23,33 @@ get "/home" do
 end
 
 get "/add_member" do
-  erb :"/add_member_form"
+  erb :"members/add_member_form"
 end
 
 get "/list_members" do
-  erb :"/list_members"
+  erb :"members/list_members"
 end
 
 get "/save_member" do
   @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
   
-  erb :"/member_added"
+  erb :"members/member_added"
+end
+
+get "/change_member" do
+  erb :"members/change_member"
+end
+
+get "/change_member_form/:x" do
+  @member_instance = Member.find(params["x"])
+  erb :"members/member"
+end
+
+get "/edited_member" do
+  @member_instance = Member.find(params["id"])
+  if !params["name"].empty?
+    @member_instance.name = params["name"]
+  end
+  @member_instance.save
+  erb :"member_changed"
 end
