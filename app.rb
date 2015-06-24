@@ -45,17 +45,15 @@ get "/change_member_form/:x" do
   erb :"members/member"
 end
 
-get "/edited_member" do
-  binding.pry
-  @member_instance = Member.find(params["id"])
-  if !params["name"].empty?
-    @member_instance.name = params["name"]
+get "/edited_member/:x" do
+  @member_instance = Member.find(params["x"])
+  if @member_instance.name_valid?(params["name"])
+    @member_instance.save
+    erb :"members/member_changed"
+  else
+    @error = true
+    erb :"members/member"
   end
-  if !params["username"].empty?
-    @member_instance.username = params["username"]
-  end
-  @member_instance.save
-  erb :"members/member_changed"
 end
 
 get "/delete_member" do

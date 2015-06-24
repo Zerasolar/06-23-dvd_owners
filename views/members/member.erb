@@ -2,7 +2,10 @@
 
 Which member you want to edit?
 
-<form action="/edited_member">
+<form action="/edited_member/<%=@member_instance.id%>">
+  
+   
+  
   <p> New Name : <input type="text" placeholder="Name" name="name" value=" <%=@member_instance.name%>"></p>
       
   <p> New Username : <input type="text" placeholder="Username" name="username" value=" <%=@member_instance.username%>"></p>

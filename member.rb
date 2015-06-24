@@ -20,4 +20,13 @@ class Member
     @name = member_options["name"]
     @username = member_options["username"]
   end
+  
+  def name_valid(name)
+    if !name.empty?
+      self.name = name
+      return true
+    else
+      return false
+    end
+  end
 end
