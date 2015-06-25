@@ -6,20 +6,25 @@ get "/list_members" do
   erb :"members/list_members"
 end
 
-get "/save_member" do
-  @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
-  erb :"members/member_added"
-end
 # get "/save_member" do
-#   m = Member.new(params["username"])
-#   if !m.existing_username
-#     @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
-#     erb :"members/member_added"
-#   else
-#     @error = true
-#     erb :"members/add_member_form"
-#   end
+#   @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
+#   erb :"members/member_added"
 # end
+get "/save_member" do
+  m = Member.new(params)
+  if m.name_valid(params["name"])
+  else
+    @error = true
+    erb :"members/add_member_form"
+  end
+  if m.existing_username
+    @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
+    erb :"members/member_added"
+  else
+    @error = false
+    erb :"members/add_member_form"
+  end
+end
 
 get "/change_member" do
   erb :"members/change_member"
@@ -27,7 +32,6 @@ end
 
 get "/change_member_form/:x" do
   @member_instance = Member.find(params["x"])
-  binding.pry
   erb :"members/member"
 end
 
