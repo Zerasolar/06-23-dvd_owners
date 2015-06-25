@@ -7,7 +7,7 @@ module DatabaseInstanceMethods
   
   # Updates the row of values in a table.
   #
-  # Returns an empty Array
+  # Returns it self. As a object.
   
   def save
     table_name = self.class.to_s.pluralize.underscore

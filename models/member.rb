@@ -7,6 +7,7 @@ class Member
   include DatabaseInstanceMethods
   attr_reader :id
   attr_accessor :name, :username
+  
   # Initializes a new member object
   #
   # member_options - Hash containing key/values.
@@ -20,6 +21,7 @@ class Member
     @name = member_options["name"]
     @username = member_options["username"]
   end
+  
   # Checks the if the name value is empty.
   #
   # name - String of the member's name.
@@ -33,17 +35,18 @@ class Member
       return false
     end
   end
+  
   # Checks if there is another username exact same username in the database
   #
   #
   # Returns Boolean
   def existing_username
     valid = true
-  existing_username = DATABASE.execute("SELECT * FROM members WHERE username = '#{username}';")
+    existing_username = DATABASE.execute("SELECT * FROM members WHERE username = '#{username}';")
   
-  if !existing_username.empty?
-    valid = false
-  end
-  return valid
-end  
+    if !existing_username.empty?
+      valid = false
+    end
+    return valid
+  end  
 end

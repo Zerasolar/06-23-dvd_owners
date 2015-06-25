@@ -1,9 +1,10 @@
-<h1> Here is the list of our members</h1>
+<h1>Here is the list of our members</h1>
 
 <ul>
   <% Member.all.each do |list| %>
-  <p><li><%= "#{list.id} - #{list.name} - #{list.username}"%>
-    <% end %>
-  </ul>
+  <p><li><%= "#{list.id} - #{list.name} - #{list.username}"%></li>
+  </p>
+  <% end %>
+</ul>
   
-  <a href="/home">Back</a>
+<a href="/home">Back</a>

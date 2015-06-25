@@ -6,6 +6,7 @@
   <% Member.all.each do |list| %>
   <input type="checkbox" name= "member[]" value= "<%= list.id%>"> <%= list.name%><br>
   <% end %>
+  
   <input type= "submit">
 </form>
 

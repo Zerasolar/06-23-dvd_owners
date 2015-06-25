@@ -13,24 +13,27 @@ module DatabaseClassMethods
     # Options pull the initalize values from a table
     column_names = options.keys
     values = options.values
-    
+    # Setting the column_names to be the key for the initalize values from a table.
+    # Setting the values to be the key for the vaules of the initalize values from a table.
 
     column_names_for_sql = column_names.join(", ")
     individual_values_for_sql = []
     values.each do |value|
-      #another way to do it values.to_s.delete("\[\]")
+      # Column names are jointed and we created an array for the individual values for the next part.
+      # Another way to do it values.to_s.delete("\[\]")
       if value.is_a?(String)
         individual_values_for_sql << "'#{value}'"
       else
         individual_values_for_sql << value
       end
+      # Figuring out which one is a string or which one is a integer we put them in an array that we joined afterward and they put into the SQL code.
     end
     values_for_sql = individual_values_for_sql.join(", ")
     
     table_name = self.to_s.pluralize.underscore
         
     DATABASE.execute("INSERT INTO #{table_name} (#{column_names_for_sql}) VALUES (#{values_for_sql});")
-    
+    # Quickly getting the id from the last row on the table.
     id = DATABASE.last_insert_row_id
     options["id"] = id
     self.new(options)
@@ -50,12 +53,13 @@ module DatabaseClassMethods
       results_as_objects << self.new(result_hash)
     end
     return results_as_objects
-  end  
+  end
+    
   # Get a single row.
   #
   # id - The id for record in a table
   #
-  # Returns an Array containing the Hash of the row.
+  # Returns the objects for a single row.
   def find(id)
     table_name = self.to_s.pluralize.underscore
     results = DATABASE.execute("SELECT * FROM #{table_name} WHERE id = #{id}").first
@@ -72,6 +76,7 @@ module DatabaseClassMethods
     table_name = self.to_s.pluralize.underscore
     DATABASE.execute("DELETE FROM #{table_name} WHERE id = #{id}")
   end
+  
   # Delete a table.
   #
   # Returns nil
