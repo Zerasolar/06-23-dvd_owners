@@ -19,4 +19,24 @@ class FormatType
     @id = format_type_options["id"]
     @name= format_type_options["name"]
   end
+  
+  def name_valid(name)
+    if !name.empty?
+      self.name = name
+      return true
+    else
+      return false
+    end
+  end
+  
+  def existing_format
+    valid = true
+    existing_name = DATABASE.execute("SELECT * FROM format_types WHERE name = '#{name}';")
+  
+    if !existing_name.empty?
+      valid = false
+    end
+    return valid
+  end  
+  
 end

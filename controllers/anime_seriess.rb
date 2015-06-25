@@ -47,7 +47,7 @@ get "/change_anime_series_form/:x" do
 end
 
 get "/edited_anime_series/:x" do
-  @anime_instance = Member.find(params["x"])
+  @anime_instance = AnimeSeries.find(params["x"])
   if @anime_instance.title_valid(params["title"])
     @anime_instance.save
     erb :"anime_seriess/anime_series_changed"
@@ -57,14 +57,14 @@ get "/edited_anime_series/:x" do
   end
 end
 
-get "/delete_member" do
-  erb :"members/delete_member"
+get "/delete_anime_series" do
+  erb :"anime_seriess/delete_anime_series"
 end
 
-get "/gone_member" do
-  params["member"].each do |member|
-    Member.delete_row(member)
+get "/gone_anime_series" do
+  params["anime"].each do |anime|
+    AnimeSeries.delete_row(anime)
   end
-  erb :"members/member_deleted"
+  erb :"anime_seriess/anime_series_deleted"
 end
     

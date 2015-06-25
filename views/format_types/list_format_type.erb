@@ -1,0 +1,10 @@
+<h1>Here is the list of our Formats</h1>
+
+<ul>
+  <% FormatType.all.each do |list| %>
+  <p><li><%= "#{list.id} - #{list.name}"%></li>
+  </p>
+  <% end %>
+</ul>
+  
+<a href="/format_type_menu">Back</a>

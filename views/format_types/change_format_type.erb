@@ -1,0 +1,8 @@
+<h1> Click on the Format you want to change </h1>
+
+<ul>
+  <% FormatType.all.each do |list| %>
+  <li><a href="/change_format_type_form/<%= list.id %>">Name: <%=list.name%></a></li>
+  <% end %>
+</ul>
+<a href="/format_type_menu">Back</a>

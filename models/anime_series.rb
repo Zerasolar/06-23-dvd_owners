@@ -28,9 +28,10 @@ class AnimeSeries
       return false
     end
   end
+  
   def existing_title
     valid = true
-    existing_title = DATABASE.execute("SELECT * FROM animeseries WHERE title = '#{title}';")
+    existing_title = DATABASE.execute("SELECT * FROM anime_series WHERE title = '#{title}';")
   
     if !existing_title.empty?
       valid = false

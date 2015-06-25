@@ -1,0 +1,13 @@
+<h1> Deleting a Format </h1>
+
+<form action="/gone_format_type">
+
+  Which one do you want to delete?<br>
+  <% FormatType.all.each do |list| %>
+  <input type="checkbox" name= "format[]" value= "<%= list.id%>"> <%= list.name%><br>
+  <% end %>
+  
+  <input type= "submit">
+</form>
+
+<a href="/format_type_menu">Back</a>
