@@ -1,0 +1,10 @@
+<h1>Here is the list of our Anime Series</h1>
+
+<ul>
+  <% AnimeSeries.all.each do |list| %>
+  <p><li><%= "#{list.id} - #{list.title}"%></li>
+  </p>
+  <% end %>
+</ul>
+  
+<a href="/anime_series_menu">Back</a>

@@ -19,4 +19,14 @@ class AnimeSeries
     @id = anime_series_options["id"]
     @title= anime_series_options["title"]
   end
+  
+  def title_valid(title)
+    if !title.empty?
+      self.title = title
+      return true
+    else
+      return false
+    end
+  end
+  
 end
