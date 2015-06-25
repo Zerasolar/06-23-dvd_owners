@@ -11,30 +11,49 @@ get "/save_anime_series" do
   valid = a.title_valid(params["title"])
   if valid == false
     erb :"anime_seriess/add_anime_series_form"
-  
-  else
+    
+  elsif a.existing_title
     @new_anime_series = AnimeSeries.add({"title" => params["title"]})
     erb :"anime_seriess/anime_series_added"
+    
+  else
+    
+    @error = false
+    erb :"anime_seriess/add_anime_series_form"
   end
 end
 
-get "/change_member" do
-  erb :"members/change_member"
+
+# Incase if I do Api we don't have an issue with two title valid.
+# get "/save_anime_series" do
+#   a = AnimeSeries.new(params)
+#   valid = a.title_valid(params["title"])
+#   if valid == false
+#     erb :"anime_seriess/add_anime_series_form"
+#
+#   else
+#     @new_anime_series = AnimeSeries.add({"title" => params["title"]})
+#     erb :"anime_seriess/anime_series_added"
+#   end
+# end
+
+get "/change_anime_series" do
+  erb :"anime_seriess/change_anime_series"
 end
 
-get "/change_member_form/:x" do
-  @member_instance = Member.find(params["x"])
-  erb :"members/member"
+get "/change_anime_series_form/:x" do
+  @anime_instance = AnimeSeries.find(params["x"])
+  erb :"anime_seriess/anime_series"
 end
 
-get "/edited_member/:x" do
-  @member_instance = Member.find(params["x"])
-  if @member_instance.name_valid(params["name"])
-    @member_instance.save
-    erb :"members/member_changed"
+get "/edited_anime_series/:x" do
+  @anime_instance = Member.find(params["x"])
+  if @anime_instance.title_valid(params["title"])
+    @anime_instance.save
+    erb :"anime_seriess/anime_series_changed"
   else
     @error = true
-    erb :"members/member"
+    erb :"anime_seriess/anime_series"
   end
 end
 

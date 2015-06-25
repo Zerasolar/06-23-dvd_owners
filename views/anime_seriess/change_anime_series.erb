@@ -1,0 +1,8 @@
+<h1> Click on the member you want to change </h1>
+
+<ul>
+  <% AnimeSeries.all.each do |list| %>
+  <li><a href="/change_anime_series_form/<%= list.id %>">Title: <%=list.title%></a></li>
+  <% end %>
+</ul>
+<a href="/anime_series_menu">Back</a>
