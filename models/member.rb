@@ -20,7 +20,11 @@ class Member
     @name = member_options["name"]
     @username = member_options["username"]
   end
-  
+  # Checks the if the name value is empty.
+  #
+  # name - String of the member's name.
+  #
+  # Returns Boolean
   def name_valid(name)
     if !name.empty?
       self.name = name
@@ -29,8 +33,17 @@ class Member
       return false
     end
   end
+  # Checks if there is another username exact same username in the database
+  #
+  #
+  # Returns Boolean
+  def existing_username
+    valid = true
+  existing_username = DATABASE.execute("SELECT * FROM members WHERE username = '#{username}';")
   
-  
-  
-  
+  if !existing_username.empty?
+    valid = false
+  end
+  return valid
+end  
 end

@@ -1,11 +1,15 @@
 require "active_support"
 require "active_support/inflector"
 require_relative "database_class_methods.rb"
-
+# Connection to the other database just in case and uses active support for the table_name.
 module DatabaseInstanceMethods
   extend DatabaseClassMethods
   
-def save
+  # Updates the row of values in a table.
+  #
+  # Returns an empty Array
+  
+  def save
     table_name = self.class.to_s.pluralize.underscore
  
     instance_variables = self.instance_variables
