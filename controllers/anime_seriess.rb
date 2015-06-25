@@ -1,16 +1,16 @@
-get "/add_member" do
-  erb :"members/add_member_form"
+get "/add_anime_series" do
+  erb :"anime_seriess/add_anime_series_form"
 end
 
 get "/list_members" do
   erb :"members/list_members"
 end
 
-get "/save_member" do
-  m = Member.new(params)
-  valid = m.name_valid(params["name"])
+get "/save_anime_series" do
+  a = AnimeSeries.new(params)
+  valid = a.title_valid(params["title"])
   if valid == false
-    erb :"members/add_member_form"
+    erb :"anime_seriess/add_anime_series_form"
   
   elsif m.existing_username
     @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
