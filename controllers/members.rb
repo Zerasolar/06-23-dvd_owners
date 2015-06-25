@@ -12,15 +12,16 @@ end
 # end
 get "/save_member" do
   m = Member.new(params)
-  if m.name_valid(params["name"])
-  else
-    @error = true
+  valid = m.name_valid(params["name"])
+  if valid == false
     erb :"members/add_member_form"
-  end
-  if m.existing_username
+  
+  elsif m.existing_username
     @new_member = Member.add({"name" => params["name"], "username" => params["username"]})
     erb :"members/member_added"
+    
   else
+    
     @error = false
     erb :"members/add_member_form"
   end

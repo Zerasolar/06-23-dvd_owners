@@ -8,9 +8,17 @@ module DatabaseClassMethods
   # Add a new record to the database.
   #
   # Returns an Object.
-  
+  #
+  # Options pull the initalize values from a table.
+  # The only thing that will always be pulled over is a Id.
+  #
+  # Id - an Integer Primary Key for a class.
+  #
+  # Example of Add
+  #
+  # Member.add("name" => User_input_name)
   def add(options={})
-    # Options pull the initalize values from a table
+    
     column_names = options.keys
     values = options.values
     # Setting the column_names to be the key for the initalize values from a table.
