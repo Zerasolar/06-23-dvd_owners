@@ -1,5 +1,5 @@
 # Load/create the database for the dvd_owners project.
-DATABASE = SQLite3::Database.new("rightstuf.db")
+DATABASE = SQLite3::Database.new("media_members.db")
 # Making the tables
 DATABASE.execute("CREATE TABLE IF NOT EXISTS members (id INTEGER PRIMARY KEY, name STRING, username STRING);")
  
