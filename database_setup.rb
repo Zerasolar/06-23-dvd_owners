@@ -5,6 +5,6 @@ DATABASE.execute("CREATE TABLE IF NOT EXISTS members (id INTEGER PRIMARY KEY, na
 DATABASE.execute("CREATE TABLE IF NOT EXISTS anime_series ( id INTEGER PRIMARY KEY, title STRING);")
 DATABASE.execute("CREATE TABLE IF NOT EXISTS format_types (id INTEGER PRIMARY KEY, name STRING);")
 DATABASE.execute("CREATE TABLE IF NOT EXISTS media (id INTEGER PRIMARY KEY, format_type_id INTEGER, anime_series_id INTEGER, cover_name STRING);")
-DATABASE.execute("CREATE TABLE IF NOT EXISTS media_member (member_id INTEGER, media_id INTEGER);") 
+DATABASE.execute("CREATE TABLE IF NOT EXISTS media_members (member_id INTEGER, media_id INTEGER);") 
 # Get results as an Array of Hashes.
 DATABASE.results_as_hash = true

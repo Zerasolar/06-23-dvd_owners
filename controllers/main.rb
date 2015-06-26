@@ -21,3 +21,7 @@ end
 get "/media_menu" do
   erb :"medias/media_menu"
 end
+
+get "/media_member_menu" do
+  erb :"media_members/media_member_menu"
+end

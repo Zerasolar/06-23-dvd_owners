@@ -2,8 +2,7 @@ get "/add_media_member" do
   erb :"media_members/add_media_member_form"
 end
 
-get "/list_media_member_form" do
-  @mediamember = MediaMember.find(params["x"])
+get "/list_media_member" do
   erb :"media_members/list_media_member"
 end
 
