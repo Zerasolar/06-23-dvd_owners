@@ -3,12 +3,25 @@ get "/add_media_member" do
 end
 
 get "/list_media_member_form" do
+  @mediamember = MediaMember.find(params["x"])
   erb :"media_members/list_media_member"
 end
 
 get "/save_media_member" do
-  formattype = FormatType.new(params["name"])
-  animeseries = AnimeSeries.new(params["title"])
-  @new_media = Media.add({"format_type_id" => params["name"].to_i, "anime_series_id" => params["title"].to_i, "cover_name" => params["cover_name"]})
+  member = Member.new(params["name"])
+  media = Media.new(params["cover_name"])
+  @new_media = MediaMember.add({"member_id" => params["member_id"].to_i, "media_id" => params["media_id"].to_i})
   erb :"media_members/media_member_added"
 end
+
+get "/delete_media_member" do
+erb :"media_members/delete_media_member"
+end
+
+get "/gone_media_member" do
+params["media_member"].each do |media_member|
+  MediaMember.delete_row(media_member)
+end
+erb :"media_member/media_member_deleted"
+end
+    

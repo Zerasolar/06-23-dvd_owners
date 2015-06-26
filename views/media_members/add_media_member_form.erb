@@ -1,0 +1,20 @@
+<h1> Adding a Media Member </h1>
+
+<form action= "/save_media_member">
+  
+  <p> Member: <select name="name"></p>
+    <%Member.all.each do |member| %>
+    <option value="<%= member.id %>"> <%= member.name %></option>
+    <% end %>
+  </select>
+  
+  <p> Media: <select name="cover_name"></p>
+    <%Media.all.each do |media| %>
+    <option value="<%= media.id %>"> <%= media.cover_name %></option>
+    <% end %>
+  </select><br><br>
+  
+  <input type= "submit">
+</form>
+
+<a href="/media_member_menu">Back</a>
