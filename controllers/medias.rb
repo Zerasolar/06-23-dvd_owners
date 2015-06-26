@@ -7,10 +7,9 @@ get "/list_media" do
 end
 
 get "/save_media" do
-  binding.pry
   formattype = FormatType.new(params["name"])
   animeseries = AnimeSeries.new(params["title"])
-  @new_media = Media.add({"format_type_id" => params["format_type_id"].to_i, "anime_series_id" => params["anime_series_id"].to_i, "cover_name" => params["cover_name"]})
+  @new_media = Media.add({"format_type_id" => params["name"].to_i, "anime_series_id" => params["title"].to_i, "cover_name" => params["cover_name"]})
   erb :"medias/media_added"
 end
 

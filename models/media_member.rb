@@ -2,11 +2,10 @@
 require_relative "../database_class_methods.rb"
 require_relative "../database_instance_methods.rb"
 
-class Media
+class MediaMember
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
-  attr_reader :id
-  attr_accessor :format_type_id, :anime_series_id, :cover_name
+  attr_accessor :member_id, :media_id
   
   # Initializes a new Media object
   #
@@ -17,10 +16,8 @@ class Media
   # name - String in the 'media' table.
   #
   # Returns a Media object.
-  def initialize(media_options={})
-    @id = media_options["id"]
-    @format_type_id= media_options["format_type_id"]
-    @anime_series_id= media_options["anime_series_id"]
-    @cover_name= media_options["cover_name"]
+  def initialize(media_member_options={})
+    @member_id= media_options["member_id"]
+    @media_id= media_options["media_id"]
   end
 end
