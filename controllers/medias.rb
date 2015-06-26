@@ -1,5 +1,5 @@
 get "/add_media" do
-  erb :"medias/add_media"
+  erb :"medias/add_media_form"
 end
 
 get "/list_media" do
@@ -7,46 +7,32 @@ get "/list_media" do
 end
 
 get "/save_media" do
-  m = Media.new(params)
-  valid = m.name_valid(params["name"])
-  if valid == false
-    erb :"medias/add_medias"
-    
-  else
-    
-    @error = true
-    erb :"format_types/add_format_type_form"
-  end
+  @new_media = Media.add({"format_type_id" => params["format_type_id"].to_i, "anime_series_id" => params["anime_series_id"].to_i, "name" => params["name"]})
+  erb :"medias/media_added"
 end
 
-get "/change_format_type" do
-  erb :"format_types/change_format_type"
+get "/change_media" do
+erb :"medias/change_media"
 end
 
-get "/change_format_type_form/:x" do
-  @format_instance = FormatType.find(params["x"])
-  erb :"format_types/format_type"
+get "/change_media_form/:x" do
+@media = Media.find(params["x"])
+erb :"medias/media"
 end
 
 get "/edited_format_type/:x" do
-  @format_instance = FormatType.find(params["x"])
-  if @format_instance.name_valid(params["name"])
-    @format_instance.save
-    erb :"format_types/format_type_changed"
-  else
-    @error = true
-    erb :"format_types/format_type"
-  end
+@media = Media.find(params["x"])
+  erb :"format_types/format_type_changed"
 end
 
 get "/delete_format_type" do
-  erb :"format_types/delete_format_type"
+erb :"format_types/delete_format_type"
 end
 
 get "/gone_format_type" do
-  params["format"].each do |format|
-    FormatType.delete_row(format)
-  end
-  erb :"format_types/format_type_deleted"
+params["format"].each do |format|
+  FormatType.delete_row(format)
+end
+erb :"format_types/format_type_deleted"
 end
     

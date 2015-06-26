@@ -1,0 +1,24 @@
+<h1> Edit Media </h1>
+Here is the Media you want to edit
+<form action="/edited_media/<%=@media.id%>">
+  
+  <p> Select Which Format: <select name="format_id"></p>
+    <% @format = FormatType.find(@media.format_type_id)%>
+    <%FormatType.all.each do |format| %>
+    <option value="<%= format.id %>" <%="selected" if format.id == @media.format_type_id%>> <%= @format.name %></option>
+    <% end %>
+  </select>
+ 
+  <p> Select Anime Series: <select name="anime_series_id"></p>
+    <% @anime = AnimeSeries.find(@media.anime_series_id)%>
+    <%AnimeSeries.all.each do |anime| %>
+    <option value="<%= anime.id %>" <%="selected" if anime.id == @media.anime_series_id%>> <%= @anime.title %></option>
+    <% end %>
+  </select>
+    
+  <p> New Name : <input type="text" placeholder="Name" name="name" value=" <%=@media.name%>"></p>
+    
+  <p> <input type="submit" value="submit changes"></p>
+</form>
+
+<a href="/change_media">Back</a>
