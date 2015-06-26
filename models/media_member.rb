@@ -5,6 +5,7 @@ require_relative "../database_instance_methods.rb"
 class MediaMember
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
+  attr_reader :id
   attr_accessor :member_id, :media_id
   
   # Initializes a new Media object
@@ -17,7 +18,8 @@ class MediaMember
   #
   # Returns a Media object.
   def initialize(media_member_options={})
-    @member_id= media_options["member_id"]
-    @media_id= media_options["media_id"]
+    @id= media_member_options["id"]
+    @member_id= media_member_options["member_id"]
+    @media_id= media_member_options["media_id"]
   end
 end

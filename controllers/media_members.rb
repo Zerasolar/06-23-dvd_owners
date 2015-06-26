@@ -9,7 +9,7 @@ end
 get "/save_media_member" do
   member = Member.new(params["name"])
   media = Media.new(params["cover_name"])
-  @new_media = MediaMember.add({"member_id" => params["member_id"].to_i, "media_id" => params["media_id"].to_i})
+  @new_media = MediaMember.add({"member_id" => params["name"].to_i, "media_id" => params["cover_name"].to_i})
   erb :"media_members/media_member_added"
 end
 
