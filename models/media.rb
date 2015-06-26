@@ -21,6 +21,6 @@ class Media
     @id = media_options["id"]
     @format_type_id= media_options["format_type_id"]
     @anime_series_id= media_options["anime_series_id"]
-    @name= media_options["name"]
+    @cover_name= media_options["cover_name"]
   end
 end

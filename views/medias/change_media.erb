@@ -2,7 +2,7 @@
 
 <ul>
   <% Media.all.each do |list| %>
-  <li><a href="/change_media_form/<%= list.id %>">Format: <%list.format_type_id%> - Anime Series: <%list.anime_series_id%> - Name: <%=list.name%></a></li>
+  <li><a href="/change_media_form/<%= list.id %>">Format: <%list.format_type_id%> - Anime Series: <%list.anime_series_id%> - Cover Name: <%=list.cover_name%></a></li>
   <% end %>
 </ul>
-<a href="/format_type_menu">Back</a>
+<a href="/media_menu">Back</a>

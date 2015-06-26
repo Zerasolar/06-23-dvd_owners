@@ -4,7 +4,7 @@
 
   Which one do you want to delete?<br>
   <% Media.all.each do |list| %>
-  <input type="checkbox" name= "media[]" value= "<%= list.id%>"> <%= list.name%><br>
+  <input type="checkbox" name= "media[]" value= "<%= list.id%>"> <%= list.cover_name%><br>
   <% end %>
   
   <input type= "submit">

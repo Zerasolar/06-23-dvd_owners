@@ -7,7 +7,10 @@ get "/list_media" do
 end
 
 get "/save_media" do
-  @new_media = Media.add({"format_type_id" => params["format_type_id"].to_i, "anime_series_id" => params["anime_series_id"].to_i, "name" => params["name"]})
+  binding.pry
+  formattype = FormatType.new(params["name"])
+  animeseries = AnimeSeries.new(params["title"])
+  @new_media = Media.add({"format_type_id" => params["format_type_id"].to_i, "anime_series_id" => params["anime_series_id"].to_i, "cover_name" => params["cover_name"]})
   erb :"medias/media_added"
 end
 
@@ -20,19 +23,19 @@ get "/change_media_form/:x" do
 erb :"medias/media"
 end
 
-get "/edited_format_type/:x" do
+get "/edited_media/:x" do
 @media = Media.find(params["x"])
-  erb :"format_types/format_type_changed"
+  erb :"medias/media_changed"
 end
 
-get "/delete_format_type" do
-erb :"format_types/delete_format_type"
+get "/delete_media" do
+erb :"medias/delete_media"
 end
 
-get "/gone_format_type" do
-params["format"].each do |format|
-  FormatType.delete_row(format)
+get "/gone_media" do
+params["media"].each do |media|
+  Media.delete_row(media)
 end
-erb :"format_types/format_type_deleted"
+erb :"medias/media_deleted"
 end
     
