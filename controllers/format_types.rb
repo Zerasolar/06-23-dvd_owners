@@ -1,5 +1,5 @@
 get "/add_format_type" do
-  erb :"members/add_format_type_form"
+  erb :"format_types/add_format_type_form"
 end
 
 get "/list_format_type" do
@@ -12,7 +12,7 @@ get "/save_format_type" do
   if valid == false
     erb :"format_types/add_format_type_form"
   
-  elsif f.existing_username
+  elsif f.existing_format
     @new_format = FormatType.add({"name" => params["name"]})
     erb :"format_types/format_type_added"
     
@@ -32,7 +32,7 @@ get "/change_format_type_form/:x" do
   erb :"format_types/format_type"
 end
 
-get "/edited_member/:x" do
+get "/edited_format_type/:x" do
   @format_instance = FormatType.find(params["x"])
   if @format_instance.name_valid(params["name"])
     @format_instance.save

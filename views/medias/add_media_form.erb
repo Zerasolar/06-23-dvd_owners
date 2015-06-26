@@ -1,0 +1,25 @@
+<h1> Adding a Media </h1>
+
+<form action= "/save_media">
+  
+  <p> Format Type: <select name="format_type_id"></p>
+    <% @distributor = Distributor.find(@good_instance.distributor_id)%>
+    <%Distributor.all.each do |distributor| %>
+    <option value="<%= distributor.id %>" <%="selected" if distributor.id == @good_instance.distributor_id%>> <%= @distributor.company %></option>
+    <% end %>
+  </select>
+  
+  <p> New Distributor: <select name="distributor_id"></p>
+    <% @distributor = Distributor.find(@good_instance.distributor_id)%>
+    <%Distributor.all.each do |distributor| %>
+    <option value="<%= distributor.id %>" <%="selected" if distributor.id == @good_instance.distributor_id%>> <%= @distributor.company %></option>
+    <% end %>
+  </select>
+  
+  What is the name of the media?<br>
+  <input type "text" placeholder="ex. Cowboy Bebop Complete Set" name="name"><br>
+  
+  <input type= "submit">
+</form>
+
+<a href="/media_menu">Back</a>
