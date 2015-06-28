@@ -1,0 +1,10 @@
+<h1> Click on the member you want to see what they own </h1>
+
+<ul>
+  <% MediaMember.all.each do |list| %>
+  <% Member.all.each do |member|%>
+  <li><a href="/list_member_own_media_form.erb/<%= list.member_id %>">Name: <%=member.name%> </a></li>
+  <% end %>
+  <% end %>
+</ul>
+<a href="/list_media_member">Back</a>

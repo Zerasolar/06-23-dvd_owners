@@ -1,0 +1,12 @@
+<h3> Here is member name's Media </h3>
+
+<ul>
+  <% MediaMember.all.each do |list| %>
+  <% @member = Member.find(list.member_id)%>
+  <% @media = Media.find(list.media_id)%>
+  <p><li><%= " #{@member.name} - #{@media.cover_name}"%></li>
+  </p>
+  <% end %>
+</ul>
+  
+<a href="/media_member_menu">Back</a>

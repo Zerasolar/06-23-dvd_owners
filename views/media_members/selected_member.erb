@@ -1,0 +1,11 @@
+<h3>All of <%= @own.name %></h3>
+
+<ul>
+  <% Media.all.each do |title|%>
+  <% @own.each do |media| %>
+  <li><%= own["media"]%></li>
+  <% end %>
+  <% end %>
+</ul>
+
+<a href="/media_member_menu">Back</a>

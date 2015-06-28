@@ -52,5 +52,6 @@ get "/gone_member" do
     Member.delete_row(member)
   end
   erb :"members/member_deleted"
+  
 end
     

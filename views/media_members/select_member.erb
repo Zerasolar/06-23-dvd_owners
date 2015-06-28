@@ -1,0 +1,10 @@
+<h1> Click on the member you want to see the media own </h1>
+
+<ul>
+  <% Member.all.each do |member| %>
+  <% MediaMember.all.each do |mediamember| %>
+  <li><a href="/change_member_form/<%= mediamember.member_id %>">Name: <%=member.name%></a></li>
+  <% end %>
+  <% end %>
+</ul>
+<a href="/media_member_menu">Back</a>

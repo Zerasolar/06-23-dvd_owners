@@ -48,5 +48,5 @@ class Member
       valid = false
     end
     return valid
-  end  
+  end
 end
