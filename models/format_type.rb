@@ -38,5 +38,4 @@ class FormatType
     end
     return valid
   end  
-  
 end

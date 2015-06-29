@@ -1,16 +1,24 @@
 <h1> Delete Media Member</h1>
 
+Which one do you want to delete?<br>
+<% MediaMember.all.each do |list| %><br>
+<%= list.member_id%> - <%= list.media_id%><br>
+  <% end %>
 <form action="/gone_media_member">
 
-  Which one do you want to delete?<br>
-  <% Member.all.each do |member| %>
-  <% Media.all.each do |media| %>
-  <% MediaMember.all.each do |list| %>
-  
-  <input type="checkbox" name= "mediamember[]" value= "<%= member.id%>", "<%= media.id%>"> <%= member.name%> - <%= media.cover_name%><br>
-  <% end %>
-  <% end %>
-  <% end %>
+  What is the number of the member?<br>
+  <input type "text" placeholder="ex. 1" name="member_id"><br>
+
+  What is the number of the media?<br>
+  <input type "text" placeholder="ex. 1" name="media_id"><br>
+
+ <!--# <form action="/gone_media_member">
+
+   Which one do you want to delete?<br>
+   <% MediaMember.all.each do |list| %>
+   <input type="checkbox" name= "mediamember[]" value= "<%= list.id%>"> <%= list.member_id%> <%= list.media_id%><br>
+   <% end %> -->
+
   <input type= "submit">
 </form>
 

@@ -22,9 +22,10 @@ get "/delete_media_member" do
 end
 
 get "/gone_media_member" do
-  params["mediamember"].each do |mediamember|
-    MediaMember.delete_member(mediamember)
-  end
+  # params["mediamember"].each do |mediamember|
+  #   Member.delete_row(mediamember)
+  # end
+    MediaMember.delete_member("member_id" => params["member_id"], "media_id" => params["media_id"])
   erb :"media_members/media_member_deleted"
 end
 
