@@ -21,6 +21,13 @@ get "/delete_media_member" do
   erb :"media_members/delete_media_member"
 end
 
+get "/gone_media_member" do
+  params["mediamember"].each do |mediamember|
+    MediaMember.delete_member(mediamember)
+  end
+  erb :"media_members/media_member_deleted"
+end
+
 get "/sort" do
   erb :"media_members/sort_menu"
 end
@@ -42,5 +49,5 @@ end
 get "/member_media/:id" do
   @media = Media.find(params["id"])
   @list_of_member = @media.member_list
-  erb :"member_media/all_member"
+  erb :"media_members/all_member"
 end

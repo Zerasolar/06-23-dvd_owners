@@ -1,0 +1,17 @@
+<h1> Delete Media Member</h1>
+
+<form action="/gone_media_member">
+
+  Which one do you want to delete?<br>
+  <% Member.all.each do |member| %>
+  <% Media.all.each do |media| %>
+  <% MediaMember.all.each do |list| %>
+  
+  <input type="checkbox" name= "mediamember[]" value= "<%= member.id%>", "<%= media.id%>"> <%= member.name%> - <%= media.cover_name%><br>
+  <% end %>
+  <% end %>
+  <% end %>
+  <input type= "submit">
+</form>
+
+<a href="/media_member_menu">Back</a>
