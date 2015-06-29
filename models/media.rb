@@ -23,4 +23,8 @@ class Media
     @anime_series_id= media_options["anime_series_id"]
     @cover_name= media_options["cover_name"]
   end
+  
+  def member_list
+    DATABASE.execute("SELECT members.name FROM media_members JOIN members ON media_members.member_id = members.id WHERE media_members.media_id = #{id};")
+end
 end

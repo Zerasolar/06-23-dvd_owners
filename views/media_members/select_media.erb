@@ -1,0 +1,8 @@
+<h1> Click on the Media to see who owns it </h1>
+
+<ul>
+  <% Media.all.each do |media| %>
+  <li><a href="/member_media/<%= media.id %>">Name: <%=media.cover_name%></a></li>
+  <% end %>
+</ul>
+<a href="/media_member_menu">Back</a>

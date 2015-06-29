@@ -2,9 +2,7 @@
 
 <ul>
   <% Member.all.each do |member| %>
-  <% MediaMember.all.each do |mediamember| %>
-  <li><a href="/change_member_form/<%= mediamember.member_id %>">Name: <%=member.name%></a></li>
-  <% end %>
+  <li><a href="/media_member/<%= member.id %>">Name: <%=member.name%></a></li>
   <% end %>
 </ul>
 <a href="/media_member_menu">Back</a>

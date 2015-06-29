@@ -49,4 +49,12 @@ class Member
     end
     return valid
   end
+  
+  def self.with_all_media
+    results = DATABASE.execute("SELECT members.name, media.cover_name FROM members LEFT JOIN media_members ON members.id = media_members.member_id LEFT JOIN media ON media.id = media_members.media_id;")
+  end
+  
+  def media_list
+    DATABASE.execute("SELECT media.cover_name FROM media_members JOIN media ON media_members.media_id = media.id WHERE media_members.member_id = #{id};")
+end
 end

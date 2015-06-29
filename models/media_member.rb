@@ -23,14 +23,14 @@ class MediaMember
     @media_id= media_member_options["media_id"]
   end
   
-  def delete_media
-
-    delete = DATABASE.execute("DELETE FROM media_members WHERE member_id = #{id} AND media_id = #{id}")
-  end
-
-  def member_own
-
-    own = DATABASE.execute("SELECT * FROM media_members WHERE member_id = #{id}")
-
-end
+#   def delete_media
+#
+#     delete = DATABASE.execute("DELETE FROM media_members WHERE member_id = #{id} AND media_id = #{id}")
+#   end
+#
+#   def member_own
+#
+#     own = DATABASE.execute("SELECT * FROM media_members WHERE member_id = #{id}")
+#
+# end
 end

@@ -1,4 +1,3 @@
-
 get "/add_media_member" do
   erb :"media_members/add_media_member_form"
 end
@@ -31,4 +30,17 @@ get "/select_member" do
 end
 
 get "/select_media" do
+  erb :"media_members/select_media"
+end
+
+get "/media_member/:id" do
+  @member = Member.find(params["id"])
+  @list_of_media = @member.media_list
+  erb :"media_members/all_media"
+end
+
+get "/member_media/:id" do
+  @media = Media.find(params["id"])
+  @list_of_member = @media.member_list
+  erb :"member_media/all_member"
 end

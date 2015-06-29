@@ -1,0 +1,9 @@
+<h2> All of <%= @member.name %>'s Media.</h2>
+
+<ul>
+  <% @list_of_media.each do |list| %>
+  <li><%= list["cover_name"]%>
+    <% end %>
+  </ul>
+  
+  <a href="/select_member">Back</a>
