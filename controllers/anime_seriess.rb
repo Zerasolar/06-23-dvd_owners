@@ -2,6 +2,17 @@ get "/add_anime_series" do
   erb :"anime_seriess/add_anime_series_form"
 end
 
+get "/info_anime_series" do
+  erb :"anime_seriess/search_anime"
+end
+
+get "/result_anime_series" do
+  num = params.find_ann_id.to_i
+  anime_title = ANN_Wrapper.fetch_anime(num)
+  @info = anime_title.synopsis
+  erb :"anime_seriess/results_anime"
+end
+
 get "/list_anime_series" do
   erb :"anime_seriess/list_anime_series"
 end
