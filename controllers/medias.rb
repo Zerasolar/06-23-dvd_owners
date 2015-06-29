@@ -14,27 +14,27 @@ get "/save_media" do
 end
 
 get "/change_media" do
-erb :"medias/change_media"
+  erb :"medias/change_media"
 end
 
 get "/change_media_form/:x" do
-@media = Media.find(params["x"])
-erb :"medias/media"
+  @media = Media.find(params["x"])
+  erb :"medias/media"
 end
 
 get "/edited_media/:x" do
-@media = Media.find(params["x"])
+  @media = Media.find(params["x"])
   erb :"medias/media_changed"
 end
 
 get "/delete_media" do
-erb :"medias/delete_media"
+  erb :"medias/delete_media"
 end
 
 get "/gone_media" do
-params["media"].each do |media|
-  Media.delete_row(media)
-end
-erb :"medias/media_deleted"
+  params["media"].each do |media|
+    Media.delete_row(media)
+  end
+  erb :"medias/media_deleted"
 end
     

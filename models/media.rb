@@ -24,7 +24,11 @@ class Media
     @cover_name= media_options["cover_name"]
   end
   
+  # A Join in Sql to select the media to see who all own it.
+  #
+  # Returns an Array
+  
   def member_list
     DATABASE.execute("SELECT members.name FROM media_members JOIN members ON media_members.member_id = members.id WHERE media_members.media_id = #{id};")
-end
+  end
 end

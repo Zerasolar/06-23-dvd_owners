@@ -20,6 +20,12 @@ class AnimeSeries
     @title= anime_series_options["title"]
   end
   
+  # Checks if the title value is empty.
+  #
+  # title - String of the anime_series title.
+  #
+  # Returns Boolean
+  
   def title_valid(title)
     if !title.empty?
       self.title = title
@@ -28,6 +34,10 @@ class AnimeSeries
       return false
     end
   end
+  
+  # Checks if there is another title exactly the same title in the database
+  #
+  # Returns Boolean
   
   def existing_title
     valid = true

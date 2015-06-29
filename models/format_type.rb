@@ -20,6 +20,12 @@ class FormatType
     @name= format_type_options["name"]
   end
   
+  # Checks if the name value is empty.
+  #
+  # name - String of the format type name.
+  #
+  # Returns Boolean
+  
   def name_valid(name)
     if !name.empty?
       self.name = name
@@ -28,6 +34,11 @@ class FormatType
       return false
     end
   end
+  
+  # Checks if there is another name exact same name in the database
+  #
+  #
+  # Returns Boolean
   
   def existing_format
     valid = true
