@@ -24,6 +24,11 @@ class Media
     @cover_name= media_options["cover_name"]
   end
   
+  # A Join in Sql to select the member to what media they own.
+  #
+  # Returns an Array
+  
+  
   # A Join in Sql to select the media to see who all own it.
   #
   # Returns an Array

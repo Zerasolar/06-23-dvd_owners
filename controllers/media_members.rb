@@ -6,10 +6,6 @@ get "/list_media_member" do
   erb :"media_members/list_media_member"
 end
 
-get "/list_media_member" do
-  erb :"media_members/list_media_member"
-end
-
 get "/save_media_member" do
   member = Member.new(params["name"])
   media = Media.new(params["cover_name"])
@@ -22,10 +18,10 @@ get "/delete_media_member" do
 end
 
 get "/gone_media_member" do
-  # params["mediamember"].each do |mediamember|
-  #   Member.delete_row(mediamember)
-  # end
-  MediaMember.delete_member("member_id" => params["member_id"], "media_id" => params["media_id"])
+  params["mediamember"].each do |mediamember|
+    Member.delete_row(mediamember)
+  end
+  # MediaMember.delete_member("member_id" => params["member_id"], "media_id" => params["media_id"])
   erb :"media_members/media_member_deleted"
 end
 
@@ -44,13 +40,11 @@ end
 get "/media_member/:id" do
   @member = Member.find(params["id"])
   @list_of_media = @member.media_list
-  binding.pry
   erb :"media_members/all_media"
 end
 
 get "/member_media/:id" do
   @media = Media.find(params["id"])
   @list_of_member = @media.member_list
-  binding.pry
   erb :"media_members/all_member"
 end

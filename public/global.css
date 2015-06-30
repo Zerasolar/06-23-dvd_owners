@@ -1,0 +1,41 @@
+h1 { 
+  font-size: 25px;
+  font-family: "Georgia", serif;
+  color: #381B28;
+  border: 1px solid #DE3737;
+}
+
+h3 { 
+  font-size: 25px;
+  font-family: "Georgia", serif;
+  color: #381B28;
+  border: 1px solid #DE3737;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li{
+  color: #381B28;
+}
+
+.button{
+  display: block;
+  height: 45px;
+  background:  #DE3737;
+  border: 3px solid #5E1324;
+  margin-top: 20;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  background: #9E1B1B;
+  color white
+  margin-top: 50px;
+  padding: 0;
+  text-align: center;
+}
